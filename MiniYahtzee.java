@@ -2,22 +2,24 @@ import java.io.Reader;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 public class MiniYahtzee
 {
+    // INSTANCE VARIABLES 
     static Window w;
     static String[] NUMS;
     static String[] YES;
-    
+    // This is just a way to have all the variables inside be static.
     static {
         MiniYahtzee.NUMS = new String[] { "0", "1", "2", "3", "4", "5" };
         MiniYahtzee.YES = new String[] { "QUIT", "CONTINUE PLAYING" };
         MiniYahtzee.w = new Window();
     }
     
+    /*
+	 * This method, main, runs the game by rolling the dice and keeping track of the results
+     * in order to display them to the user. It keeps track of the score and gives the user
+     * a way to exit, as well as gives them their total points and asks if they want to play again.
+	 */
     public static void main(final String[] args) {
         int play = 1;
         int scorea = 0;
@@ -91,17 +93,9 @@ public class MiniYahtzee
         }
     }
     
-    static int inputInt(final String Prompt) {
-        int result = 0;
-        try {
-            result = Integer.parseInt(input(Prompt).trim());
-        }
-        catch (Exception e) {
-            result = 0;
-        }
-        return result;
-    }
-    
+    /*
+	 * This method takes a String parameter and returns the message.
+	 */
     static String input(final String prompt) {
         String inputLine = "";
         System.out.print(prompt);
@@ -115,5 +109,19 @@ public class MiniYahtzee
             System.out.print(err);
         }
         return inputLine;
+    }
+    
+    /*
+	 * This method uses the input method to only return an int despite having a String parameter.
+	 */
+    static int inputInt(final String Prompt) {
+        int result = 0;
+        try {
+            result = Integer.parseInt(input(Prompt).trim());
+        }
+        catch (Exception e) {
+            result = 0;
+        }
+        return result;
     }
 }
